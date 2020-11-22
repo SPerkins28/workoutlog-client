@@ -20,8 +20,8 @@ const WorkoutCreate = (props) => {
         .then((logData) => {
             console.log(logData);
             setDescription('');
-            setDefinition();
-            setResult();
+            setDefinition('');
+            setResult('');
             props.fetchWorkouts();
         })
     }
@@ -32,19 +32,19 @@ const WorkoutCreate = (props) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="description"/>
-                    <Input name="description" onChange={(e) => setDescription(e.target.value)} value={description}/>
+                    <Input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={description}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="definition"/>
-                    <Input type="select" name="definition" onChange={(e) => setDefinition(e.target.value)} value={definition}>
-                        <option value="Time">Time</option>
+                    <Input type="text" name="definition" onChange={(e) => setDefinition(e.target.value)} value={definition}>
+                        {/* <option value="Time">Time</option>
                         <option value="Weight">Weight</option>
-                        <option value="Distance">Distance</option>
+                        <option value="Distance">Distance</option> */}
                     </Input>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="result"/>
-                    <Input name="result" value={result} onChange={(e) => setResult(e.target.value)}/>
+                    <Input type="text" name="result" value={result} onChange={(e) => setResult(e.target.value)}/>
                 </FormGroup>
                 <Button type="submit">Click to Submit</Button>
             </Form>
